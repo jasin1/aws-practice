@@ -5,7 +5,7 @@ const form = document.querySelector('#formData');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
-  const response = await fetch('arn:aws:lambda:eu-north-1:984112902435:function:helloWorld', {
+  const response = await fetch('https://eu-north-1.amazonaws.com/2015-03-31/functions/arn:aws:lambda:eu-north-1:984112902435:function:helloWorld/invocations', {
     method: 'POST',
     body: JSON.stringify({
       name: formData.get('name'),
@@ -17,3 +17,6 @@ form.addEventListener('submit', async (e) => {
   const responseElement = document.querySelector('.response');
   responseElement.innerText = responseBody.message;
 });
+
+
+//arn:aws:lambda:eu-north-1:984112902435:function:helloWorld 
